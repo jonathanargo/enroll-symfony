@@ -9,6 +9,9 @@
         "php": ">=8.2.12",
         "ext-ctype": "*",
         "ext-iconv": "*",
+        "doctrine/doctrine-bundle": "^2.10",
+        "doctrine/doctrine-migrations-bundle": "^3.2",
+        "doctrine/orm": "^2.16",
         "runtime/frankenphp-symfony": "^0.1.1",
         "symfony/console": "6.3.*",
         "symfony/dotenv": "6.3.*",
@@ -67,6 +70,7 @@
         }
     },
     "require-dev": {
+        "symfony/maker-bundle": "^1.51",
         "symfony/stopwatch": "6.3.*",
         "symfony/web-profiler-bundle": "6.3.*"
     }
