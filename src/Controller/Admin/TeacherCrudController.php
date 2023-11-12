@@ -7,16 +7,26 @@ use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IdField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\BooleanField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\CollectionField;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Filters;
 use EasyCorp\Bundle\EasyAdminBundle\Filter\BooleanFilter;
 use EasyCorp\Bundle\EasyAdminBundle\Filter\TextFilter;
+use EasyCorp\Bundle\EasyAdminBundle\Config\Actions;
+use EasyCorp\Bundle\EasyAdminBundle\Config\Action;
 
 class TeacherCrudController extends AbstractCrudController
 {
     public static function getEntityFqcn(): string
     {
         return Teacher::class;
+    }
+
+    public function configureActions(Actions $actions): Actions
+    {
+        return $actions
+            ->add(Crud::PAGE_INDEX, Action::DETAIL);
     }
 
     public function configureCrud(Crud $crud): Crud
@@ -49,5 +59,7 @@ class TeacherCrudController extends AbstractCrudController
         // Render has_tenure as a toggleable switch but only on the edit form.
         yield BooleanField::new('has_tenure')->renderAsSwitch(false)->onlyOnIndex();
         yield BooleanField::new('has_tenure')->hideOnIndex();
+
+        yield CollectionField::new('classes', 'Classes')->onlyOnDetail();
     }
 }

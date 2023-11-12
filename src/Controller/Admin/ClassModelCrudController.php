@@ -20,7 +20,6 @@ class ClassModelCrudController extends AbstractCrudController
     {
         return $actions
             ->add(Crud::PAGE_INDEX, Action::DETAIL);
-
     }
 
     public static function getEntityFqcn(): string
