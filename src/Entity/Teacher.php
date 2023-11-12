@@ -121,15 +121,16 @@ class Teacher
         return $this;
     }
 
-    public function removeClass(ClassModel $class): static
-    {
-        if ($this->classes->removeElement($class)) {
-            // set the owning side to null (unless already changed)
-            if ($class->getTeacherId() === $this) {
-                $class->setTeacherId(null);
-            }
-        }
+    /** Teacher is non-nullable on class, so this is probably unnecessary */
+    // public function removeClass(ClassModel $class): static
+    // {
+    //     if ($this->classes->removeElement($class)) {
+    //         // set the owning side to null (unless already changed)
+    //         if ($class->getTeacherId() === $this) {
+    //             $class->setTeacherId(null);
+    //         }
+    //     }
 
-        return $this;
-    }
+    //     return $this;
+    // }
 }
