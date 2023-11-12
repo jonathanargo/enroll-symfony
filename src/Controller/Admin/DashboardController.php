@@ -10,6 +10,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Entity\Student;
 use App\Entity\Teacher;
+use App\Entity\ClassModel;
 
 class DashboardController extends AbstractDashboardController
 {
@@ -33,6 +34,6 @@ class DashboardController extends AbstractDashboardController
         yield MenuItem::linkToDashboard('Dashboard', 'fa fa-home');
         yield MenuItem::linkToCrud('Students', 'fas fa-list', Student::class);
         yield MenuItem::linkToCrud('Teachers', 'fas fa-list', Teacher::class);
-
+        yield MenuItem::linkToCrud('Classes', 'fas fa-list', ClassModel::class);
     }
 }

@@ -121,6 +121,11 @@ class Teacher
         return $this;
     }
 
+    public function __toString(): string
+    {
+        return $this->name;
+    }
+
     /** Teacher is non-nullable on class, so this is probably unnecessary */
     // public function removeClass(ClassModel $class): static
     // {
