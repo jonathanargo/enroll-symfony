@@ -65,6 +65,6 @@ class Student
 
     public function __toString()
     {
-        return $this->name.' '.$this->year;
+        return $this->name;
     }
 }
