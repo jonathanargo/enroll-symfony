@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Enrollment{% endblock %}
+
+{% block body %}
+
+{% if classes|length > 0 %}
+    <h1>Classes:</h1>
+    <ul>
+    {% for class in classes %}
+        <li>
+            {# <a href="{{ path('class', {id: class.id}) }}"> #}
+            {{ class.name }} (Teacher: {{ class.teacherId.name }})
+            {# </a> #}
+        </li>
+    {% endfor %}
+{% else %}
+    <h1>No classes found!</h1>
+{% endif %}
+
+{% endblock %}
